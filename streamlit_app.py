@@ -25,9 +25,11 @@ df = load_data()
 # Show a multiselect widget with the genres using `st.multiselect`.
 genres = st.multiselect(
     "Rooms",
-    df.genre.unique(),
+#    df.genre.unique(),
     ["Mikes office", "DX Lab"],
 )
+
+unique_dates = df['created_at'].dt.date.unique()
 
 # Show a slider widget with the years using `st.slider`.
 years = st.slider("Days", 9-9, 9-10, (9-9, 9-10))
