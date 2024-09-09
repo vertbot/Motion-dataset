@@ -28,17 +28,17 @@ def load_data():
 
 df = load_data()
 
-# Show a multiselect widget with the genres using `st.multiselect`.
-genres = st.multiselect(
-    "Rooms",
-#    df.genre.unique(),
-    ["Mikes office", "DX Lab"],
-)
+# # Show a multiselect widget with the genres using `st.multiselect`.
+# genres = st.multiselect(
+#     "Rooms",
+# #    df.genre.unique(),
+#     ["Mikes office", "DX Lab"],
+# )
 
-unique_dates = df['created_at'].dt.date.unique()
+# unique_dates = df['created_at'].dt.date.unique()
 
-# Show a slider widget with the years using `st.slider`.
-years = st.slider("Days", unique_dates, (unique_dates))
+# # Show a slider widget with the years using `st.slider`.
+# years = st.slider("Days", 9-9, 9-10, (9-9, 9-10))
 
 # # Filter the dataframe based on the widget input and reshape it.
 # df_filtered = df[(df["genre"].isin(genres)) & (df["year"].between(years[0], years[1]))]
@@ -49,11 +49,11 @@ years = st.slider("Days", unique_dates, (unique_dates))
 
 
 # # Display the data as a table using `st.dataframe`.
-# st.dataframe(
-#     df_reshaped,
-#     use_container_width=True,
-#     column_config={"year": st.column_config.TextColumn("Year")},
-# )
+st.dataframe(
+    df,
+    use_container_width=True,
+    column_config={"created_at": st.column_config.TextColumn("created_at")},
+)
 
 # # Display the data as an Altair chart using `st.altair_chart`.
 # df_chart = pd.melt(
