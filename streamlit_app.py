@@ -1,6 +1,10 @@
 import altair as alt
 import pandas as pd
 import streamlit as st
+import pandas as pd
+import numpy as np
+import datetime
+
 
 # Show the page title and description.
 st.set_page_config(page_title="Motion", page_icon="🎬")
@@ -17,6 +21,8 @@ st.write(
 @st.cache_data
 def load_data():
     df = pd.read_csv("data/1.csv")
+    df['created_at']= pd.to_datetime(df['created_at'])
+    df = df.dropna(subset = ['field1']) # drop rows with NaN in field1 
     return df
 
 
