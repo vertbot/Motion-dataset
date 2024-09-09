@@ -38,7 +38,7 @@ genres = st.multiselect(
 unique_dates = df['created_at'].dt.date.unique()
 
 # Show a slider widget with the years using `st.slider`.
-years = st.slider("Days", 9-9, 9-10, (9-9, 9-10))
+years = st.slider("Days", unique_dates, (unique_dates))
 
 # # Filter the dataframe based on the widget input and reshape it.
 # df_filtered = df[(df["genre"].isin(genres)) & (df["year"].between(years[0], years[1]))]
